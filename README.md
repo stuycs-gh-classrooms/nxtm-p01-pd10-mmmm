@@ -93,3 +93,23 @@ CLASS Invader1 <-- assuming we make more invaders later
   - move(x,y)
   - die
   - shoot
+
+CLASS block
+- Instance variables:
+  - PVector position
+  - int size
+  - int color
+    
+- METHODS
+  - nextColor
+  - die
+
+CLASS bullet
+  - Instance variables:
+    - PVector position
+    - int size
+    - int color
+   
+ - METHODS
+    - collision?
+    - move
