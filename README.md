@@ -75,21 +75,21 @@ What classes will you be creating for this project? Include the instance variabl
 CLASS Player
 - Instance variables:
   - PVector position
-  - size
-  - color
+  - int size
+  - int color
     
 - METHODS
-  - move
+  - move(x, y)
   - shoot
   - die
 
 CLASS Invader1 <-- assuming we make more invaders later
 - Instance variables:
   - PVector position
-  - size
-  - color
+  - int size
+  - int color
     
 - METHODS
-  - move
+  - move(x,y)
   - die
   - shoot
