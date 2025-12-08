@@ -1,5 +1,5 @@
 class Invaders{//1 class for invaders to allow for 1 swarm class. must decide which kind of invader/attributes within this class.
-  int size;
+  int size;// missing the characteristics of invaders. should die when bullet.collisionCheck() = TRUE
   int state;
   PVector pos;
   
@@ -15,3 +15,4 @@ class Invaders{//1 class for invaders to allow for 1 swarm class. must decide wh
     }
   }
 }
+
