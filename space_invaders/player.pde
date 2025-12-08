@@ -1,4 +1,4 @@
-class Player {
+class Player { //needs to be able to die
   int size;
   int state;
   PVector pos;
@@ -40,3 +40,4 @@ class Player {
   
   
 }
+
