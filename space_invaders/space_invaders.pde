@@ -1,3 +1,5 @@
+//this will be DRIVER FILE. currently a hectic mess
+
 int Pstart_x;
 int Pstart_y;
 int ALIVE = 1;
@@ -46,3 +48,4 @@ void block(){
   s = s + width/3;
 }
 }
+
