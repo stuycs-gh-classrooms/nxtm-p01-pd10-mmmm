@@ -10,13 +10,13 @@ void setup() {
   Pstart_x = width/3;
   Pstart_y= height - height/10;
   user = new Player(Pstart_x, Pstart_y, 50, 0);
- // four = new Block(x, y, 50, 0); // very wrong coords
+ five = new Block(x, y, 50, 0); // Im still kinda confused to as to how you want to the five squares make one 
    fill(0,255,0);
-  line(0,height -20, width, height - 20);
+  line(0,height -20, width, height - 20); // style for screen 
 }
 void draw() {
   background(0);
-  user.display(); //Cannot make a static reference to the non-static method display() from the type block.Bullet
+  user.display(); //Cannot make a static reference to the non-static method display() from the type block.Bullet --> fixed by doing Player user. user is a new instence of the Player class. 
   user.move();
   user.shoot();
   five.display();
