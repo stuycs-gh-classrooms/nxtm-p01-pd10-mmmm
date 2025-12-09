@@ -1,16 +1,16 @@
 class Bullets{
   
-  char[] data;
+  Bullet[] data;
   int size;
   
   //constructor
   Bullets(int capacity){
-     data = new int[capacity];
+     data = new Bullet[capacity];
      size = 0;
   }
-  ListArray(){
-    this(20);
-  }
+  //Bu(){
+  //  this(20);
+  //}
   
   //String toString(){
   //  String s = "[ ";
@@ -21,21 +21,13 @@ class Bullets{
   //  return s;
   //}
   
-  void add(char c){
+  void add(Bullet c){
     data[size] = c;//add to the last index
     size++;
   }
   
-  char get(int i){
-    if (i < 0 || i >= size){
-      return 0;
-    }
-    else{
-      return data[i];
-    }
-  }
   
-  int indexOf(char c){
+  int indexOf(Bullet c){
     for (int i = 0; i < size; i++){
       if (data[i] == c){
         return i;
