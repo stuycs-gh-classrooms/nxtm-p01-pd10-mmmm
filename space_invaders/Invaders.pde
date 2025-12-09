@@ -11,8 +11,18 @@ class Invaders{//1 class for invaders to allow for 1 swarm class. must decide wh
   
   void display(){
     if (state == ALIVE){
-      circle(pos.x, pos.y, size);
+      rect(x,y, sz * 1.5, sz);// body 
+  rect( x + sz/4, y,  sz / 5 , - sz/ 4);
+  rect( x + 4 * sz/4, y,  sz / 5 , - sz/ 4);
+  rect( x + 4 * sz/4, y + sz,  sz / 5 , sz/ 3); // right 
+  rect( x + sz/4, y + sz,  sz / 5 , sz/ 3);
+  rect( x, y + sz * .25, -sz / 3, sz /3); // left arm
+  rect( x + sz * 1.5, y + sz * .25, sz / 3, sz /3); // right arm
+  fill(0,0,0);
+  square( x + sz/4, y + sz/4, sz/3); // eye 
+  square( x + sz, y + sz/4, sz/3);// eye
     }
   }
 }
+
 
