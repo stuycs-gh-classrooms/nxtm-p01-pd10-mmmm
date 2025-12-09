@@ -1,28 +1,26 @@
-class Invaders{//1 class for invaders to allow for 1 swarm class. must decide which kind of invader/attributes within this class.
+class Invaders {//1 class for invaders to allow for 1 swarm class. must decide which kind of invader/attributes within this class.
   int size;// missing the characteristics of invaders. should die when bullet.collisionCheck() = TRUE
   int state;
   PVector pos;
-  
-  Invaders(int x, int y, int sz, int st){
-    pos = new PVector(x,y);
+
+  Invaders(int x, int y, int sz, int st) {
+    pos = new PVector(x, y);
     size = sz;
     state = st;
   }
-  
-  void display(){
-    if (state == ALIVE){
-      rect(x,y, sz * 1.5, sz);// body 
-  rect( x + sz/4, y,  sz / 5 , - sz/ 4);
-  rect( x + 4 * sz/4, y,  sz / 5 , - sz/ 4);
-  rect( x + 4 * sz/4, y + sz,  sz / 5 , sz/ 3); // right 
-  rect( x + sz/4, y + sz,  sz / 5 , sz/ 3);
-  rect( x, y + sz * .25, -sz / 3, sz /3); // left arm
-  rect( x + sz * 1.5, y + sz * .25, sz / 3, sz /3); // right arm
-  fill(0,0,0);
-  square( x + sz/4, y + sz/4, sz/3); // eye 
-  square( x + sz, y + sz/4, sz/3);// eye
+
+  void display() {
+    if (state == ALIVE) {
+      rect(pos.x, pos.y, size * 1.5, size);// body
+      rect(pos.x + size/4, pos.y, size / 5, - size/ 4);
+      rect(pos.x + 4 * size/4, pos.y, size / 5, - size/ 4);
+      rect(pos.x + 4 * size/4, pos.y + size, size / 5, size/ 3); // right
+      rect(pos.x + size/4, pos.y + size, size / 5, size/ 3);
+      rect(pos.x, pos.y + size * .25, -size / 3, size /3); // left arm
+      rect(pos.x + size * 1.5, pos.y + size * .25, size / 3, size /3); // right arm
+      fill(0, 0, 0);
+      square(pos.x + size/4, pos.y + size/4, size/3); // eye
+      square(pos.x + size, pos.y + size/4, size/3);// eye
     }
   }
 }
-
-

@@ -32,12 +32,10 @@ class Player { //needs to be able to die
   void shoot() {
     if (keyPressed) {
       if (keyCode == ' ') {
-        Bullet.display();
-        Bullet.move();
+        bullets
       }
     }
   }
   
   
 }
-
