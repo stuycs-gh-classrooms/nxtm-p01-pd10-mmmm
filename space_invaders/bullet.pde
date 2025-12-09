@@ -5,7 +5,7 @@ class Bullet
   PVector pos;
   int direction;
 
-  Bullet(int x, int y, int d) {
+  Bullet(float x, float y, int d) {
     pos = new PVector(x, y);
     direction = d;
   }

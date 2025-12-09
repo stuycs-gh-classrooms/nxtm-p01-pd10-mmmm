@@ -2,6 +2,7 @@ class Player { //needs to be able to die
   int size;
   int state;
   PVector pos;
+  Bullet n;
 
   Player(int x, int y, int sz, int st) {
     pos = new PVector(x, y);
@@ -32,7 +33,8 @@ class Player { //needs to be able to die
   void shoot() {
     if (keyPressed) {
       if (keyCode == ' ') {
-        bullets
+        n = new Bullet(pos.x, pos.y, -1);
+        projectiles.add(n);
       }
     }
   }

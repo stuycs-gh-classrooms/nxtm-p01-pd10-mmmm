@@ -4,12 +4,13 @@ int ALIVE = 1;
 int DEAD = 0;
 int numBlocks = 5;
 Block[] obstacles;
-Bullet[] bullets;
+Bullets projectiles;
 Player user; // a new player which is teh user
 Block five; // three just bc five squares =  one block
 //need to add a list array for the bullets?
 void setup() {
   size(500, 500);
+  projectiles = new Bullets(0);
   Pstart_x = width/3;
   Pstart_y= height - height/10;
   user = new Player(Pstart_x, Pstart_y, 50, 1);
