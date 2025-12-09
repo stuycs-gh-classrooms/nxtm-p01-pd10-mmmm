@@ -17,6 +17,15 @@ class Block
   }
   
   void die(){
-    //if shot by a bullet (collision check), the 
+    //if shot by a bullet (collision check), the
+    int count = 0;
+    for(int i = 0; i < obstacles.length; i++){
+      if(collisionCheck(this.block)){
+        fill(random(0,256), random(0,256), random(0,256));
+        count ++;
+        if( count == 4 ){
+          obstacles[i] == null;}
+      }}}
+        
+      
   }
-}
