@@ -1,30 +1,28 @@
-//this will be DRIVER FILE. currently a hectic mess
-
 int Pstart_x;
 int Pstart_y;
 int ALIVE = 1;
 int DEAD = 0;
+Player user; // a new player which is teh user
+Block five; // three just bc five squares =  one block
 //need to add a list array for the bullets?
 void setup() {
   size(500, 500);
   Pstart_x = width/3;
-  Pstart_y=height - height/10;
+  Pstart_y= height - height/10;
+  user = new Player(Pstart_x, Pstart_y, 50, 0);
+ // four = new Block(x, y, 50, 0); // very wrong coords
+   fill(0,255,0);
+  line(0,height -20, width, height - 20);
 }
 void draw() {
   background(0);
-  Player(Pstart_x, Pstart_y );
-  move();
-  block();
-  fill(0,255,0);
-  line(0,height -20, width, height - 20);
-}
-void Player(int x, int y) {
-  fill(0, 255, 0);
-  stroke(0, 255, 0);
-  rect(x + 10, y, 40, 15);
-  rect(x + 25, y -5, 10, 5);
-  rect(x + 27, y - 7, 6, 8);
-  rect(x+ 29, y - 13, 2, 10);
+  user.display(); //Cannot make a static reference to the non-static method display() from the type block.Bullet
+  user.move();
+  user.shoot();
+  five.display();
+  five.die(); // okay so i did up to player and block. 
+
+
 }
 
 void move() {
@@ -37,15 +35,3 @@ void move() {
     }
   }
 }
-
-void block(){
-  fill(0,255,0);
-  int s = 0;
-  for(int i = 0; i<3; i++){
-  rect(width/8 + s, height - height/4.5, 10,30);
-  rect(width/8 + s, height - height/4.5, 30,10);
-  rect(width/8 + 30 +s, height - height/4.5, 10,30);
-  s = s + width/3;
-}
-}
-
