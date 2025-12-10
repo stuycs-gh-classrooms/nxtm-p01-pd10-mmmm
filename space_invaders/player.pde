@@ -2,6 +2,7 @@ class Player { //needs to be able to die
   int size;
   int state;
   PVector pos;
+  int health = 3;
   Bullet n;
 
   Player(int x, int y, int sz, int st) {

@@ -16,7 +16,7 @@ class Bullet
   }
 
   void move() {
-    pos.x += direction;
+    pos.y += direction;
   }
 
   boolean collisionCheck(Block b) {

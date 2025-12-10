@@ -11,6 +11,7 @@ class Invaders {//1 class for invaders to allow for 1 swarm class. must decide w
 
   void display() {
     if (state == ALIVE) {
+      fill(0,255,0);
       rect(pos.x, pos.y, size * 1.5, size);// body
       rect(pos.x + size/4, pos.y, size / 5, - size/ 4);
       rect(pos.x + 4 * size/4, pos.y, size / 5, - size/ 4);
