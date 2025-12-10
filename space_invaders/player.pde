@@ -19,25 +19,12 @@ class Player { //needs to be able to die
     rect(pos.x+ 29, pos.y - 13, 2, 10);
   }
 
-  void move() {
-    if (keyPressed) {
-      if (keyCode == LEFT) {
-        pos.x -= 1;
-      }
-      if (keyCode == RIGHT) {
-        pos.x += 1;
-      }
-    }
+  void move(int direction) {
+    pos.x += direction;
   }
 
   void shoot() {
-    if (keyPressed) {
-      if (keyCode == ' ') {
-        n = new Bullet(pos.x, pos.y, -1);
-        projectiles.add(n);
-      }
-    }
+    n = new Bullet(pos.x, pos.y, -1);
+    projectiles.add(n);
   }
-  
-  
 }
