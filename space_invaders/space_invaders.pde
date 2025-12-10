@@ -29,8 +29,11 @@ void setup() {
 void draw() {
   background(0);
   user.display(); //Cannot make a static reference to the non-static method display() from the type block.Bullet --> fixed by doing Player user. user is a new instence of the Player class.
+<<<<<<< HEAD
   user.move();
   user.shoot(); 
+=======
+>>>>>>> 255586abf8321a8cdbae9335cf78b88fa8b1650a
   for (int i = 0; i < obstacles.length; i++) {
     if (obstacles[i] != null) {
       obstacles[i].display();
@@ -59,6 +62,7 @@ void draw() {
       }
     }
   }
+<<<<<<< HEAD
   fill(0, 255, 0);
   line(0, height -30, width, height - 30); // style for screen
   line(0, 50, width, 50);
@@ -67,11 +71,22 @@ void draw() {
 
 void move() {
   if (keyPressed) {
+=======
+  
+   if (keyPressed) {
+>>>>>>> 255586abf8321a8cdbae9335cf78b88fa8b1650a
     if (keyCode == LEFT) {
-      user.pos.x-=1;
+      user.move(-1);
     }
     if (keyCode == RIGHT) {
-      user.pos.x+=1;
+      user.move(1);
     }
+    if (keyCode == ' ') {
+      user.shoot();
+    } 
   }
+
 }
+
+
+ 
