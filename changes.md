@@ -3,3 +3,4 @@ Changes we've made:
 - We need two seperate classes for invaders, the single invader and the "swarm" of invaders. (similar to land vs forest classes) The swarm will be the one shooting bullets
 - collision checks for all classes in the bullet class. 
 - using states saved as integers 1 and 0. 1 is alive and 0 is dead. since everything needs to die (even bullets on collision)!
+- relocating the ability to die out of the classes and into the driver file. for convienence sake also its very buggy
