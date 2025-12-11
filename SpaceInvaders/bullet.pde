@@ -23,19 +23,15 @@ class Bullet
 
 
     return(
-      pos.x < b.pos.x + b.size &&
-      pos.x + w > b.pos.x &&
-      pos.y < b.pos.y + b.size &&
-      pos.y + l > b.pos.y
+      (pos.x < b.pos.x + b.size && pos.x > b.pos.x) &&//bullet's x is to the 
+      (pos.y < b.pos.y + b.size && pos.y > b.pos.y)
       );
   }
 
   boolean collisionCheck(Invaders inv) {
     return (
-      pos.x < inv.pos.x + inv.size &&
-      pos.x + w > inv.pos.x &&
-      pos.y < inv.pos.y + inv.size &&
-      pos.y + l > inv.pos.y
+      (pos.x < inv.pos.x + 40 && pos.x > inv.pos.x) &&
+      (pos.y < inv.pos.y + 40 && pos.y > inv.pos.y)
       );
   }
 

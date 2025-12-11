@@ -8,11 +8,11 @@ class Invaders {//1 class for invaders to allow for 1 swarm class. must decide w
     size = sz;
     state = st;
   }
-
   void display() {
     if (state == ALIVE) {
       fill(0,255,0);
-      rect(pos.x + 5, pos.y + height/ 10, size * 1.5, size);// body
+      // pos.x + -size/3 --> pos.x
+      rect(pos.x + 4, pos.y + height/ 10, size * 1.5, size);// body
       rect(pos.x + size/4 + 5, pos.y + height/ 10, size / 5, - size/ 4);
       rect(pos.x + 4 * size/4 + 5, pos.y + height/ 10, size / 5, - size/ 4);
       rect(pos.x + 4 * size/4 + 5, pos.y + size + height/ 10, size / 5, size/ 3); // right
@@ -22,6 +22,7 @@ class Invaders {//1 class for invaders to allow for 1 swarm class. must decide w
       fill(0, 0, 0);
       square(pos.x + size/4 + 5, pos.y + size/4 + height/ 10, size/3); // eye
       square(pos.x + size + 5, pos.y + size/4 + height/ 10, size/3);// eye
+      point(pos.x,pos.y+40);
     }
   }
 }

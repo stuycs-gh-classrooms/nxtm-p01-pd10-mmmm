@@ -14,7 +14,7 @@ class Block
 
   void display() {
     fill(0, 255, 0);
-    square(pos.x + 29 , pos.y - 13, size);//will just make squares, each one of the blocks near the front will just be 5 preset squares
+    square(pos.x , pos.y, size);//will just make squares, each one of the blocks near the front will just be 5 preset squares
   }
 
   //void die() {
