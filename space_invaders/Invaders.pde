@@ -12,16 +12,16 @@ class Invaders {//1 class for invaders to allow for 1 swarm class. must decide w
   void display() {
     if (state == ALIVE) {
       fill(0,255,0);
-      rect(pos.x, pos.y, size * 1.5, size);// body
-      rect(pos.x + size/4, pos.y, size / 5, - size/ 4);
-      rect(pos.x + 4 * size/4, pos.y, size / 5, - size/ 4);
-      rect(pos.x + 4 * size/4, pos.y + size, size / 5, size/ 3); // right
-      rect(pos.x + size/4, pos.y + size, size / 5, size/ 3);
-      rect(pos.x, pos.y + size * .25, -size / 3, size /3); // left arm
-      rect(pos.x + size * 1.5, pos.y + size * .25, size / 3, size /3); // right arm
+      rect(pos.x + 5, pos.y + height/ 10, size * 1.5, size);// body
+      rect(pos.x + size/4 + 5, pos.y + height/ 10, size / 5, - size/ 4);
+      rect(pos.x + 4 * size/4 + 5, pos.y + height/ 10, size / 5, - size/ 4);
+      rect(pos.x + 4 * size/4 + 5, pos.y + size + height/ 10, size / 5, size/ 3); // right
+      rect(pos.x + size/4 + 5, pos.y + size + height/ 10, size / 5, size/ 3);
+      rect(pos.x + 5, pos.y + size * .25 + height/ 10, -size / 3, size /3); // left arm
+      rect(pos.x + size * 1.5 + 5, pos.y + size * .25 + height/ 10, size / 3, size /3); // right arm
       fill(0, 0, 0);
-      square(pos.x + size/4, pos.y + size/4, size/3); // eye
-      square(pos.x + size, pos.y + size/4, size/3);// eye
+      square(pos.x + size/4 + 5, pos.y + size/4 + height/ 10, size/3); // eye
+      square(pos.x + size + 5, pos.y + size/4 + height/ 10, size/3);// eye
     }
   }
 }
