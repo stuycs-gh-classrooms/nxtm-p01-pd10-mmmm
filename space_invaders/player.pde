@@ -24,8 +24,12 @@ class Player { //needs to be able to die
     pos.x += direction;
   }
 
-  void shoot() {
-    n = new Bullet(pos.x, pos.y, -1);
-    projectiles.add(n);
+  void shoot(int x) {
+    while (x != 0) {
+      n = new Bullet(pos.x, pos.y, -1);
+      projectiles.add(n);
+      x--;
+    }
+    delay(2);
   }
 }

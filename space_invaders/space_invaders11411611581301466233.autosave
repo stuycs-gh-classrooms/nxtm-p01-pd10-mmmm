@@ -1,9 +1,6 @@
-// To: fix bullet position, check on block die, make the swarm, points + lives
-
 int ALIVE = 1;
 int DEAD = 0;
 int numBlocks = 5;
-int points = 0;
 Block[] obstacles;
 Bullets projectiles;
 Swarm invaders;
@@ -12,19 +9,18 @@ Player user; // a new player which is teh user
 //need to add a list array for the bullets?
 void setup() {
   size(500, 500);
-  projectiles = new Bullets(20000000);
+  projectiles = new Bullets(200);
   user = new Player(width/2, height-60, 50, ALIVE);
+  frameRate(60);
   invaders = new Swarm(4, 4);
   obstacles = new Block[numBlocks];
   for (int i = 0; i < numBlocks; i++) {
-    int s = width / 5;
-    obstacles[i]= new Block(25+ s * i, 350, 35, ALIVE);
+    obstacles[i]= new Block(60 + i*90, 350, 35, ALIVE);
   }
 
-
   //five = new Block(x, y, 50, 0); // Im still kinda confused to as to how you want to the five squares make one
-  //fill(0, 255, 0);
-  //line(0, height -20, width, height - 20); // style for screen
+  fill(0, 255, 0);
+  line(0, height - 20, width, height - 20); // style for screen
 }
 void draw() {
   background(0);
@@ -37,10 +33,10 @@ void draw() {
   for (int i = 0; i < projectiles.size; i++) {
     Bullet b = projectiles.data[i];
     if (b != null) {
-      b.move();
       b.display();
     }
   }
+  
   for (int i = 0; i < obstacles.length; i++) {
     Block square = obstacles[i];
 
@@ -57,24 +53,26 @@ void draw() {
       }
     }
   }
-  fill(0, 255, 0);
-  line(0, height -30, width, height - 30); // style for screen
-  line(0, 50, width, 50);
+  
   invaders.display();
-  move();
-}
-
-void move() {
-
-  if (keyPressed) {
+      
+      
+  
+   if (keyPressed) {
     if (keyCode == LEFT) {
       user.move(-1);
     }
     if (keyCode == RIGHT) {
       user.move(1);
     }
-    if (keyCode == UP) {
-      user.shoot(1);
-    }
+    if (keyCode == ' ') {
+      user.shoot();
+    } 
   }
+
 }
+
+void die(){
+  
+}
+ 
