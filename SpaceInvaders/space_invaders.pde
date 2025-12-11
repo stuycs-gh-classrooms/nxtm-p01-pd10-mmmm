@@ -74,7 +74,7 @@ void draw() {
 
           if (bul != null && bul.collisionCheck(invaders.grid[i][j])) {
             invaders.grid[i][j] = null;
-            bul = null;
+            points += 30;
           }
         }
       }
