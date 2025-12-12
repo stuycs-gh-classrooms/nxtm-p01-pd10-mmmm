@@ -6,6 +6,7 @@ class Swarm {
   int numRows;
   int numCols;
   int moving = 1;
+  int drop = 10;
   boolean hitEdge;
 
   Swarm(int nr, int nc) {
@@ -20,7 +21,7 @@ class Swarm {
         grid[i][j] = new Invaders(i* 3 *size, j* 3 *size + 60, size, state);
       }
     }
-  }
+  } // populates swarm
 
   void drawGrid() {
     hitEdge = false;
@@ -31,30 +32,40 @@ class Swarm {
         }
       }
     }
+    for (int i = 0; i < numRows; i++) {
+      for (int j = 0; j < numCols; j++) {
+        if (grid[i][j].pos.x <= 0 || grid[i][j].pos.x + grid[i][j].size  > width) {
+          hitEdge = true;
+        }
+      }
+    }
+
 
 
     if (hitEdge) {
-      moving *= -1;
-      for (int i = 0; i < numRows; i++) {
-        for (int j = 0; j < numCols; j++) {
+      for ( int i = 0; i < numRows; i++) {
+        for ( int j = 0; j < numCols; j++) {
           if (grid[i][j] != null) {
-            grid[i][j].pos.y += 10;
+            grid[i][j].pos.y += drop;
+            moving = - moving;
           }
         }
       }
     }
+
+
     if (frameCount % 60 == 0) {
       for (int i = 0; i < numRows; i++) {
         for ( int j = 0; j < numCols; j++) {
           if (grid[i][j] != null) {
-            if (grid[i][j].pos.x <= 0 || grid[i][j].pos.x + grid[i][j].size > width) {
-              hitEdge = true;
-              grid[i][j] = new Invaders((i* 3 * size) +  moving, j* 3 *size + 60, size, state);
-            }
+            grid[i][j] = new Invaders((i* 3 * size) +  moving, j* 3 *size + 60, size, state);
           }
         }
       }
-      moving += 1;
+
+      moving += 10;
     }
-  } // need to create check if invenders get off the screen and move down.
+  }
 }
+
+  // need to create check if invenders get off the screen and move down.
