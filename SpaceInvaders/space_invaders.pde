@@ -17,10 +17,10 @@ void setup() {
   user = new Player(width/2, height-60, 50, ALIVE);
   invaders = new Swarm(5, 4);
   obstacles = new Block[numBlocks];
+  frameRate(60);
   for (int i = 0; i < numBlocks; i++) {
     int s = width / 5;
     obstacles[i]= new Block(30 + (s * i), 350, 35, ALIVE);
-    frameRate = 60;
   }
 
 
