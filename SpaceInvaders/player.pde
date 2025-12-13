@@ -21,22 +21,25 @@ class Player { //needs to be able to die
   }
 
   //void move(int direction) {
-    /*if (keyPressed) {
-    if (keyCode == LEFT) {
-      user.move(-direction);
-    }
-    
-    if (keyCode == RIGHT) {
-      user.move(direction);
-    }
-    if (keyCode == ' ') {
-      user.shoot();
-    } 
-  }
-  }*/
+  /*if (keyPressed) {
+   if (keyCode == LEFT) {
+   user.move(-direction);
+   }
+   
+   if (keyCode == RIGHT) {
+   user.move(direction);
+   }
+   if (keyCode == ' ') {
+   user.shoot();
+   }
+   }
+   }*/
 
   void shoot() {
-    n = new Bullet(pos.x + size/2 + 4, pos.y, -1);
-    projectiles.add(n);
+    if (shootCooldown == 0) {
+      Bullet n = new Bullet(pos.x + size/2 + 4, pos.y, -1);
+      projectiles.add(n);
+      shootCooldown = 45;
+    }
   }
 }
