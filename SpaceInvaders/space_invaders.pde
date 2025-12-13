@@ -5,6 +5,7 @@ int DEAD = 0;
 int numBlocks = 5;
 int points = 0;
 int lives = 3;
+int shootCooldown = 0;
 Block[] obstacles;
 Bullets projectiles;
 Swarm invaders;
@@ -40,7 +41,9 @@ void draw() {
   text("LIVES :" + " " + lives, width - 150, 30);
   user.display(); //Cannot make a static reference to the non-static method display() from the type block.Bullet --> fixed by doing Player user. user is a new instence of the Player class.
   move();
-  //user.shoot();
+  println(shootCooldown);
+  update();
+    
   for (int i = 0; i < obstacles.length; i++) {
     if (obstacles[i] != null) {
       obstacles[i].display();
@@ -66,6 +69,7 @@ void draw() {
     }
   }
 
+ 
   for (int i = 0; i< invaders.numRows; i++) {
     for (int j = 0; j < invaders.numCols; j++) {
       if (invaders.grid[i][j] != null) {
@@ -75,6 +79,9 @@ void draw() {
           if (bul != null && bul.collisionCheck(invaders.grid[i][j])) {
             invaders.grid[i][j] = null;
             points += 30;
+            projectiles.remove(k);
+            k--;
+            break;
           }
         }
       }
@@ -93,6 +100,12 @@ void move() {
     if (keyCode == UP) {
       user.shoot();
     }
+  }
+}
+
+void update() {
+  if (shootCooldown > 0) {
+    shootCooldown--;
   }
 }
 
