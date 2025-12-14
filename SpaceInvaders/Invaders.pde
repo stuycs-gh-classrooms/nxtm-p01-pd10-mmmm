@@ -22,7 +22,7 @@ class Invaders {//1 class for invaders to allow for 1 swarm class. must decide w
       fill(0, 0, 0);
       square(pos.x + size/4 + 5, pos.y + size/4 + height/ 10, size/3); // eye
       square(pos.x + size + 5, pos.y + size/4 + height/ 10, size/3);// eye
-      point(pos.x,pos.y+40);
+      //point(pos.x,pos.y+40);
     }
   }
 }

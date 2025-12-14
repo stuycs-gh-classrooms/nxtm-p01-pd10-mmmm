@@ -18,7 +18,7 @@ class Swarm {
 
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j < numCols; j++) {
-        grid[i][j] = new Invaders(i* 3 *size, j* 3 *size + 60, size, state);
+        grid[i][j] = new Invaders(i * 3 *size, j*  3 *size + 10, size, state);
       }
     }
   } // populates swarm
@@ -32,6 +32,7 @@ class Swarm {
         }
       }
     }
+    //hitEdge = false;
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j < numCols; j++) {
         if (grid[i][j] != null) {
@@ -59,7 +60,7 @@ class Swarm {
     //}
 
 
-    if (frameCount % 60 == 0) {
+    if (frameCount % 20 == 0) {
       if (hitEdge == true) {
         direction *= -1;
         for (int i = 0; i < numRows; i++) {
@@ -67,7 +68,7 @@ class Swarm {
             if (grid[i][j] != null) {
               //if (hitEdge == true){
               //grid[i][j] = new Invaders((i* 3 * size) + direction, j* 3 *size + 60, size, state); // moving
-              direction *= -1;
+              //direction *= -1;
               grid[i][j].pos.x += direction;
               grid[i][j].pos.y += drop;
             }
@@ -82,7 +83,12 @@ class Swarm {
           }
         }
       }
-      }
+      for (int i = 0; i < numRows; i++) {
+          for ( int j = 0; j < numCols; j++) {
+      if(user.state != ALIVE){
+       direction = 0;
+       drop = 0;
+      }}}
             
           
           //  grid[i][j].pos.x += d;
@@ -116,6 +122,17 @@ class Swarm {
     //  //  }
     //  //}
     //}
+  }}
+  
+  
+  void shoot() {
+    int randomR = int(random(0, numRows));
+    int randomC = int(random(0, numCols));
+    if (frameCount % 150 == 0 && grid[randomR][randomC] != null) {
+      Bullet g = new Bullet(grid[randomR][randomC].pos.x + size/2 , grid[randomR][randomC].pos.y, 1);
+      swarmP.add(g);
+      //shootCooldown = 45;
+    }
   }
   }
 
