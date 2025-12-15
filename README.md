@@ -1,6 +1,7 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Mfyqb_T6)
 # NeXtCS Project 01
-### thinker0: FRIST LSAT
-### thinker1: FRIST LSAT
+### thinker0: Nabila Rahman
+### thinker1: Marcus Markova
 ---
 
 ### Overview
@@ -21,50 +22,94 @@ The first phase will be to work on this document.
 
 ## Phase 0: Selection, Analysis & Plan
 
-#### Selected Project: CHOOSE WISELY
+#### Selected Project: SPACE INVADERS
 
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
 
-YOUR ANSWERS HERE
+Screen
+Points system
+Player objects
+"The invader" objects
+Bullets
+Timer
+Game over state
+Win state
+Lives
 
 ### Extra Features
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
-YOUR ANSWERS HERE
+Multiple invaders, different difficulties
+Levels
+Blockades
+
 
 ### Array Usage
 How will you be using arrays in this project?
 
 1D Array:
-- YOUR ANSER HERE
+- ?
 
 2D Array:
-- YOUR ANSWER HERE
+- invaders blockade
+- the normal blockades
 
 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
 
 Keyboard Commands:
-- LIST OF COMMANDS HERE
+- LEFT/RIGHT for moving back and forth
+- SPACE to shoot
+- ESC pause menu
 
 Mouse Control:
-- Mouse movement:
-- Mouse pressed:
+- Mouse movement:NO
+- Mouse pressed: used in pause screen to quit game
 
 
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
-CLASS NAME0
+CLASS Player
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - PVector position
+  - int size
+  - int color
+    
 - METHODS
-  - LIST METHODS HERE
+  - move(x, y)
+  - shoot
+  - die
 
-CLASS NAME1
+CLASS Invader1 <-- assuming we make more invaders later
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - PVector position
+  - int size
+  - int color
+    
 - METHODS
-  - LIST METHODS HERE
+  - move(x,y)
+  - die
+  - shoot
+
+CLASS block
+- Instance variables:
+  - PVector position
+  - int size
+  - int color
+    
+- METHODS
+  - nextColor
+  - die
+
+CLASS bullet
+  - Instance variables:
+    - PVector position
+    - int size
+    - int color
+   
+ - METHODS
+    - collision?
+    - move
