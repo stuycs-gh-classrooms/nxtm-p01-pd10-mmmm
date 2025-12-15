@@ -6,6 +6,11 @@ int blockLife = 3;
 int points = 0;
 int lives = 3;
 int shootCooldown = 0;
+int START = 0;
+int PLAYING = 1;
+int WIN = 2;
+int GAMEOVER = 3;
+int gameState = START;
 Block[] obstacles;
 Bullets projectiles;
 Bullets swarmP;
@@ -26,7 +31,6 @@ void setup() {
   for (int i = 0; i < numBlocks; i++) {
     int s = width / 5;
     obstacles[i]= new Block(30 + (s * i), 350, 35, ALIVE);
-    
   }
 
 
@@ -35,6 +39,31 @@ void setup() {
   //line(0, height -20, width, height - 20); // style for screen
 }
 void draw() {
+  if (gameState == START){
+    startGame();
+  }
+  else if (gameState == PLAYING){
+    runGame();
+  }
+  else if (gameState == WIN){
+    winScreen();
+  }
+  else if (gameState == GAMEOVER){
+    gameOverScreen();
+  }
+}
+
+void startGame(){
+  background(0);
+  fill(0, 255, 0);
+  textAlign(CENTER);
+  textSize(48);
+  text("SPACE INVADERS", width/2, height/2 - 40);
+  textSize(20);
+  text("Press ENTER to start", width/2, height/2 + 20);
+}
+
+void runGame(){
   background(0);
   fill(0, 255, 0);
   line(0, height -30, width, height - 30); // style for screen
@@ -42,28 +71,24 @@ void draw() {
   invaders.drawGrid();
   fill(255, 255, 255);
   textSize(30);
-  text("SCORE :" + " "+ points, 10, 30); // score counter
+  text("SCORE :" + " "+ points, 80, 30); // score counter
   text("LIVES :" + " " + lives, width - 110, 30);
   user.display(); //Cannot make a static reference to the non-static method display() from the type block.Bullet --> fixed by doing Player user. user is a new instence of the Player class.
   move();
   invaders.shoot();
   println(shootCooldown);
   update();
-//  int randomSTx =int(random(0, width));
-//int randomSTy = int( random(0, height));
-//int star = 100;
-//  for(int n =0 ; n < star; n ++){
-//    fill(255,255,255);
-//    circle(randomSTx, randomSTy, 2);  I wanted to make stars in the background? 
-  
-  
-  if(user.state == DEAD){
-    fill(0,0,0);
-    rect(75, height/2 - 100  , 350 , 150);
-    textSize(50);
-    fill(0,255,0);
-    text("GAME OVER", 130, height/ 2 - 10);
-  } 
+  //  int randomSTx =int(random(0, width));
+  //int randomSTy = int( random(0, height));
+  //int star = 100;
+  //  for(int n =0 ; n < star; n ++){
+  //    fill(255,255,255);
+  //    circle(randomSTx, randomSTy, 2);  I wanted to make stars in the background?
+
+
+  if (user.state == DEAD) {
+    gameOverScreen();
+  }
   for (int i = 0; i < obstacles.length; i++) {
     if (obstacles[i] != null) {
       obstacles[i].display();
@@ -128,16 +153,13 @@ void draw() {
       swarmP.remove(g);
       lives = lives - 1;
       break;
-      
     }
-    if(user.health <= 0){
+    if (user.health <= 0) {
       user.state = DEAD;
-  }}
+    }
+  }
 
-
-
-
-
+  checkWinCondition();
 
   for (int i = 0; i< invaders.numRows; i++) {
     for (int j = 0; j < invaders.numCols; j++) {
@@ -157,6 +179,59 @@ void draw() {
     }
   }
 }
+
+void resetGame(){
+  points = 0;
+  lives = 3;
+  shootCooldown = 0;
+  projectiles = new Bullets(2000000);
+  swarmP = new Bullets(200000000);
+
+  user = new Player(width/2, height - 60, 50, ALIVE);
+  invaders = new Swarm(5, 4);
+
+  obstacles = new Block[numBlocks];
+  for (int i = 0; i < numBlocks; i++) {
+    int s = width / 5;
+    obstacles[i] = new Block(30 + (s * i), 350, 35, ALIVE);
+  }
+
+  gameState = PLAYING;
+}
+
+void gameOverScreen() {
+  background(0);
+  fill(0, 255, 0);
+  textAlign(CENTER);
+  textSize(50);
+  text("GAME OVER", width/2, height/2);
+
+  textSize(20);
+  text("Press R to restart", width/2, height/2 + 40);
+}
+
+void winScreen(){
+  background(0);
+  fill(0, 255, 0);
+  textAlign(CENTER);
+  textSize(50);
+  text("YOU WIN!", width/2, height/2);
+
+  textSize(20);
+  text("Press R to restart", width/2, height/2 + 40);
+}
+
+void checkWinCondition() {
+  for (int i = 0; i < invaders.numRows; i++) {
+    for (int j = 0; j < invaders.numCols; j++) {
+      if (invaders.grid[i][j] != null) {
+        return; //still invaders alive
+      }
+    }
+  }
+  gameState = WIN;
+}
+
 void move() {
   if (keyPressed) {
     if (keyCode == LEFT && user.state == ALIVE) {
@@ -178,6 +253,13 @@ void update() {
   }
 }
 
-
+void keyPressed(){
+  if (gameState == START && key == ENTER){
+    gameState = PLAYING;
+  }
+  if ((gameState == WIN || gameState == GAMEOVER) && key == 'r'){
+    resetGame();
+  }
+}
 
 //println([i][j].pos.y - grid[i+1][j].pos.y);
