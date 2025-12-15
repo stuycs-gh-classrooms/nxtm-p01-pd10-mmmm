@@ -88,6 +88,7 @@ void runGame(){
 
   if (user.state == DEAD) {
     gameOverScreen();
+    gameState = GAMEOVER;
   }
   for (int i = 0; i < obstacles.length; i++) {
     if (obstacles[i] != null) {
