@@ -1,21 +1,22 @@
 # NeXtCS Project 01
-### Period:  
-### Name0: YOUR NAME HERE
-### Name1: TEAMMATE NAME HERE (delete if working solo)
-#### Selected Game: YOUR GAME HERE
+### Period: 10
+### Name0: Nabila Rahman
+### Name1: Marcus Markova
+#### Selected Game: Space Invaders
 ---
 
 ### How To Play
-Explain how to play your game. Include any keyboard and/or mouse commands, game objectives, etc.
-
-
----
+Click start, then use the arrow keys to move the player left and right and space to shoot.
 
 ### Features
-List all the game features you were able to implelment.
-
+Moving
+shooting
+invaders moving
+collision checks!
+30 points per invader
+end state!
 
 ---
 
 ### Changes
-What changed about your game after the design phase? Separate changes that occured after the feedback round and changes that occured during programming.
+We needed to change the graphics for the invaders so that collision checks would work. We also needed considerably less in the classes and more in the driver file. 
